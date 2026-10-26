@@ -1,0 +1,3 @@
+-keep class com.alkaidlab.dexlocal.DexUserService { *; }
+-keep class com.alkaidlab.dexlocal.core.** { *; }
+-keep class rikka.shizuku.** { *; }

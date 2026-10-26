@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+    <queries>
+        <package android:name="com.sec.android.app.dexonpc" />
+        <package android:name="moe.shizuku.privileged.api" />
+        <package android:name="roro.stellar.manager" />
+    </queries>
+    <application android:name=".DexApplication" android:allowBackup="false"
+        android:label="DeX 主页" android:icon="@drawable/ic_launcher"
+        android:theme="@style/Theme.DexLocal" android:supportsRtl="true">
+        <meta-data android:name="com.samsung.android.multidisplay.keep_process_alive" android:value="true" />
+        <meta-data android:name="com.samsung.android.keepalive.density" android:value="true" />
+        <activity android:name=".MainActivity" android:exported="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|density|uiMode|keyboard|keyboardHidden|navigation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".HomeEntryActivity" android:exported="true" android:excludeFromRecents="true"
+            android:taskAffinity="" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DexHostActivity" android:exported="true" android:launchMode="singleTask"
+            android:taskAffinity="com.alkaidlab.dexlocal.host" android:excludeFromRecents="true"
+            android:screenOrientation="sensorLandscape" android:resizeableActivity="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|density|uiMode|keyboard|keyboardHidden|navigation">
+        </activity>
+        <provider android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="${applicationId}.shizuku" android:multiprocess="false"
+            android:enabled="true" android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    </application>
+</manifest>
